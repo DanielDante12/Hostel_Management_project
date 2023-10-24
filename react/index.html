@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #333;
+            color: aliceblue;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .card{
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <table>
+            <tr>
+                <td>
+                    name
+                </td>
+                <td>
+                    <input type="text" id="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    image
+                </td>
+                <td>
+                    <input type="file" name="" class="image">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div class="main">
+
+    </div>
+    <script>
+        const URL = 'http://localhost:8000'
+        const main = document.querySelector(".main")
+        window.addEventListener("load",()=>{
+            fetch('http://localhost:8000/users/3')
+        .then(res => res.json())
+        .then(data => {
+            let output = ''
+            // data.forEach(element => {
+                output += `<div class="card"><img src ="${URL}/${data.image}" width="400px"/><h2>${data.name}</h2></div>`
+            // })
+            main.innerHTML = output
+            // console.log(data)
+        })
+        })
+        const save =()
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="dante">
+
+    </div>
+    <script>
+         const URL = 'http://localhost:8000/about/'
+        const main = document.querySelector(".dante")
+        window.addEventListener("load",()=>{
+            fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            let output = ''
+            data.forEach(element => {
+                output += `<div class="card"><h1>${element.name}</h1><h2>${element.course}</h2></div>`
+            })
+            main.innerHTML = output
+            // console.log(data)
+        })
+        })
+    </script>
+</body>
+</html>
